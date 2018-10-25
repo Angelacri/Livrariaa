@@ -15,4 +15,8 @@ public class Criptografia {
 //        MessageDigest md = MessageDigest.getInstance("MD5");
 //        if()
 //    }
+
+    public static String convertPasswordTomMDS(String parameter) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

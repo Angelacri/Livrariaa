@@ -3,7 +3,7 @@
 
                 <div class="card ">
               <div class="card-header">
-                <h4 class="card-title">Genero</h4>
+                <h4 class="card-title">Classificacao</h4>
               </div>
               <div class="card-body">
                     <a class="btn btn-primary btn-round text-center" href="add.jsp">
@@ -16,7 +16,7 @@
                         ID
                       </th>
                       <th>
-                        Genero
+                        Classificacao
                       </th>
                       <th>
                         Edita
@@ -31,12 +31,12 @@
                                 <td>${obj.id}</td>
                                 <td>${obj.genero}</td>
                                 <td>
-                                    <a class="btn btn-info btn-fab btn-icon btn-round" href="GeneroWS?acao=edit&id=${obj.id}">
+                                    <a class="btn btn-info btn-fab btn-icon btn-round" href="ClassificacaoWS?acao=edit&id=${obj.id}">
                                         <i class="tim-icons icon-pencil"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-fab btn-icon btn-round" href="GeneroWS?acao=del&id=${obj.id}">
+                                    <a class="btn btn-primary btn-fab btn-icon btn-round" href="ClassificacaoWS?acao=del&id=${obj.id}">
                                         <i class="tim-icons icon-trash-simple"></i>
                                     </a>
                                 </td>
