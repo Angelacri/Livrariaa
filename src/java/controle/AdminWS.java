@@ -7,7 +7,7 @@ package controle;
 
 import dao.AdminDAO;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,10 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import modelo.Admin;
 import util.Criptografia;
-
 
 /**
  *
@@ -46,7 +44,7 @@ public class AdminWS extends HttpServlet {
                 dao = new AdminDAO();
                 pagina = "index.jsp";
                 obj = dao.buscarPorChavePrimaria(Long.parseLong(id));
-                 Boolean deucerto = dao.excluir(obj);
+                Boolean deucerto = dao.excluir(obj);
                 if(deucerto){   
                     lista = dao.listar();
                     request.setAttribute("lista", lista);
@@ -87,8 +85,8 @@ public class AdminWS extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
-             {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
             String msg;
             request.setCharacterEncoding("UTF-8");
             //verificar campos obrigatórios
@@ -107,7 +105,16 @@ public class AdminWS extends HttpServlet {
                     obj = dao.buscarPorChavePrimaria(Long.parseLong(request.getParameter("txtId")));
                     obj.setNome(request.getParameter("txtNome"));
                     obj.setEmail(request.getParameter("txtEmail"));
-                    obj.setSenha(request.getParameter("txtSenha"));
+                 String criptografia;
+                    try {
+                        criptografia = Criptografia.convertPasswordToMD5(request.getParameter("txtSenha"));
+                        obj.setSenha(criptografia);
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(AdminWS.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                    
+         
+                    }
                     obj.setEndFoto(request.getParameter("txtFoto"));
                     deucerto = dao.alterar(obj);
                     pagina="edita.jsp";
@@ -115,10 +122,18 @@ public class AdminWS extends HttpServlet {
                 else{
                     obj.setNome(request.getParameter("txtNome"));
                     obj.setEmail(request.getParameter("txtEmail"));
-                 
-                    String  criptografia = Criptografia.convertPasswordTomMDS(request.getParameter("txtsenha"));
-                    obj.setSenha(criptografia);
-                
+                    
+                        String criptografia;
+                    try {
+                        criptografia = Criptografia.convertPasswordToMD5(request.getParameter("txtSenha"));
+                        obj.setSenha(criptografia);
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(AdminWS.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                    
+         
+                    }
+                    
                     obj.setEndFoto(request.getParameter("txtFoto"));
                     deucerto = dao.incluir(obj);
                     pagina="add.jsp";   
