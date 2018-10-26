@@ -59,6 +59,12 @@
               <p>Admin</p>
             </a>
           </li>
+          <li>
+            <a href="./../classificacao/ClassificacaoWS?acao=list">
+              <i class="tim-icons icon-tag"></i>
+              <p>Classificacao</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

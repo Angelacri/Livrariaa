@@ -27,15 +27,15 @@
             <div class="row">
                 <div class="col-md-5 pr-md-1">
                     <div class="form-group">
-                        <label>Idade</label>
-                        <input type="text" name="txtEmail" required class="form-control" placeholder="Emaiç" value="${obj.email}">
+                        <label>Email</label>
+                        <input type="text" name="txtEmail" required class="form-control" placeholder="Email" value="${obj.email}">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 pr-md-1">
                     <div class="form-group">
-                        <label>Cidade</label>
+                        <label>Senha</label>
                         <input type="text" name="txtSenha" required class="form-control" placeholder="Senha" value="${obj.senha}">
                     </div>
                 </div>

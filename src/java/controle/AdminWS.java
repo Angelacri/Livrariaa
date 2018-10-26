@@ -7,6 +7,7 @@ package controle;
 
 import dao.AdminDAO;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,8 +87,8 @@ public class AdminWS extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
+             {
             String msg;
             request.setCharacterEncoding("UTF-8");
             //verificar campos obrigatórios

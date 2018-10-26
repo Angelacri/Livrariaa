@@ -1,7 +1,7 @@
 
 package dao;
 
-import modelo.Admin;
+
 import modelo.Admin;
 
 
